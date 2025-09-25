@@ -1,489 +1,988 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dopamina - Transformando Conexões e Oportunidades</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --azul-petroleo: #004d61;
-      --cinza-claro: #f2f2f2;
-      --branco: #ffffff;
-      --cinza-texto: #333333;
-      --dourado: #ffd700;
-      --azul-claro: #016f85;
-      --preto-sombra: rgba(0, 0, 0, 0.2);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dopamina - Informação que impulsiona negócios</title>
+    <meta name="description" content="Dopamina oferece serviços de informação, intermediação de negócios e apoio administrativo com foco em eficiência e transparência.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0b1020;
+            --text-light: #eef2ff;
+            --teal-primary: #5eead4;
+            --teal-secondary: #2dd4bf;
+            --blue-light: #60a5fa;
+            --glass-bg: rgba(238, 242, 255, 0.05);
+            --glass-border: rgba(238, 242, 255, 0.1);
+            --gradient-primary: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+            --gradient-secondary: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        }
 
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background-color: var(--branco);
-      color: var(--cinza-texto);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .navbar {
-      background-color: var(--azul-petroleo);
-      box-shadow: 0 4px 12px var(--preto-sombra);
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .navbar-brand {
-      font-size: 1.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--branco) !important;
-      letter-spacing: 2px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .nav-link {
-      color: var(--branco) !important;
-      font-weight: 600;
-      margin-left: 1rem;
-      transition: color 0.3s ease;
-    }
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 16, 32, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
-    .nav-link:hover {
-      color: var(--dourado) !important;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .hero {
-      background: linear-gradient(135deg, var(--azul-petroleo), var(--azul-claro));
-      color: var(--branco);
-      text-align: center;
-      padding: 8rem 2rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px var(--preto-sombra);
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+        }
 
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 900;
-      margin-bottom: 2rem;
-      text-transform: capitalize;
-      letter-spacing: 3px;
-    }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
 
-    .hero p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0.85;
-    }
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+        }
 
-    .features {
-      padding: 6rem 2rem;
-      background-color: var(--cinza-claro);
-      text-align: center;
-    }
+        .logo-icon::before {
+            top: 8px;
+            left: 8px;
+        }
 
-    .features .card {
-      border: none;
-      border-radius: 20px;
-      background: var(--branco);
-      box-shadow: 0 6px 20px var(--preto-sombra);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .logo-icon::after {
+            bottom: 8px;
+            right: 8px;
+        }
 
-    .features .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
 
-    .features .card h5 {
-      color: var(--azul-petroleo);
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .impact {
-      background: var(--azul-petroleo);
-      color: var(--branco);
-      text-align: center;
-      padding: 6rem 2rem;
-      font-size: 1.75rem;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: 1px;
-      border-radius: 10px;
-    }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    .about {
-      padding: 6rem 2rem;
-      text-align: center;
-      background-color: var(--branco);
-      max-width: 900px;
-      margin: 0 auto;
-      box-shadow: 0 8px 24px var(--preto-sombra);
-    }
+        nav a:hover {
+            color: var(--teal-primary);
+        }
 
-    .about h2 {
-      color: var(--azul-petroleo);
-      font-weight: 700;
-      margin-bottom: 2rem;
-      font-size: 2.5rem;
-      text-transform: uppercase;
-    }
+        .cta-button {
+            background: var(--gradient-primary);
+            color: var(--bg-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .team, .events, .faq {
-      padding: 6rem 2rem;
-      text-align: center;
-    }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(94, 234, 212, 0.3);
+        }
 
-    .team {
-      background-color: var(--cinza-claro);
-    }
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    .team h2, .events h2, .faq h2 {
-      color: var(--azul-petroleo);
-      font-weight: 700;
-      margin-bottom: 3rem;
-      font-size: 2.5rem;
-      text-transform: uppercase;
-    }
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            padding: 4rem 0;
+            background: radial-gradient(ellipse at center, rgba(94, 234, 212, 0.1) 0%, transparent 70%);
+        }
 
-    .team .card, .events .card {
-      border: none;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px var(--preto-sombra);
-    }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-    .faq {
-      background-color: var(--cinza-claro);
-    }
+        .hero-text > * + * {
+    margin-top: 2rem;
+}
 
-    .faq .accordion-button {
-      font-weight: 600;
-      color: var(--azul-petroleo);
-      background-color: var(--branco);
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 12px var(--preto-sombra);
-    }
+        .hero-badge {
+            display: inline-block;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--teal-primary);
+            margin-bottom: 1.5rem;
+        }
 
-    .faq .accordion-button:not(.collapsed) {
-      background-color: var(--azul-claro);
-      color: var(--branco);
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--teal-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    .faq .accordion-body {
-      text-align: left;
-      font-size: 1rem;
-      color: #444;
-      background-color: var(--branco);
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: inset 0 2px 6px var(--preto-sombra);
-    }
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(238, 242, 255, 0.8);
+            margin-bottom: 2rem;
+        }
 
-    footer {
-      background-color: var(--azul-petroleo);
-      color: var(--branco);
-      text-align: center;
-      padding: 3rem 1rem;
-      margin-top: 3rem;
-      border-top: 5px solid var(--dourado);
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
 
-    footer h5 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--bg-dark);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    footer a {
-      color: var(--branco);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border: 2px solid var(--glass-border);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-    footer a:hover {
-      color: var(--dourado);
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(94, 234, 212, 0.3);
+        }
 
-    .cta-button {
-      background-color: var(--azul-claro);
-      color: var(--branco);
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
-      border-radius: 30px;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-    }
+        .btn-secondary:hover {
+            border-color: var(--teal-primary);
+            background: rgba(94, 234, 212, 0.1);
+        }
 
-    .cta-button:hover {
-      background-color: var(--azul-petroleo);
-    }
-  </style>
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: rgba(238, 242, 255, 0.7);
+        }
+
+        .hero-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--teal-primary);
+        }
+
+        .kpi-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .kpi-item {
+            text-align: center;
+        }
+
+        .kpi-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue-light);
+            display: block;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            color: rgba(238, 242, 255, 0.8);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: rgba(238, 242, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(94, 234, 212, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--teal-primary);
+        }
+
+        .service-card p {
+            margin-bottom: 1.5rem;
+            color: rgba(238, 242, 255, 0.8);
+        }
+
+        .service-points {
+            list-style: none;
+        }
+
+        .service-points li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(238, 242, 255, 0.9);
+        }
+
+        .service-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal-primary);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            background: radial-gradient(ellipse at center, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.25rem;
+            color: rgba(238, 242, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: rgba(238, 242, 255, 0.9);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--teal-primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: rgba(238, 242, 255, 0.7);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue-light);
+        }
+
+        .blog-card p {
+            color: rgba(238, 242, 255, 0.8);
+        }
+
+        .blog-cta {
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            background: rgba(238, 242, 255, 0.05);
+            color: var(--text-light);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal-primary);
+            background: rgba(238, 242, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--teal-primary);
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+
+        .contact-item strong {
+            color: var(--blue-light);
+        }
+
+        .lgpd-note {
+            font-size: 0.9rem;
+            color: rgba(238, 242, 255, 0.7);
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--teal-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-card,
+            .contact-form,
+            .contact-info {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--teal-primary);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">Dopamina</a>
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#team">Equipe</a></li>
-          <li class="nav-item"><a class="nav-link" href="#events">Eventos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Conectando Pessoas. Inspirando o Futuro.</h1>
-    <p>Transformamos desafios em oportunidades e ideias em resultados extraordinários. Junte-se a nós para criar um futuro mais inovador e colaborativo.</p>
-    <br><br>
-    <a href="#about" class="cta-button">Descubra Mais</a>
-  </section>
-
-  <!-- Features -->
-  <section class="features">
-    <div class="container">
-      <h2 class="display-4 text-primary mb-5">O Que Oferecemos</h2>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="card p-4 h-100">
-            <h5>Confiança que Transforma</h5>
-            <p>Estabelecemos relações sólidas e de confiança que geram resultados transformadores, não apenas agora, mas por gerações.</p>
-          </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" aria-label="Dopamina - Página inicial">
+                    <div class="logo-icon" aria-hidden="true"></div>
+                    <span class="logo-text">Dopamina</span>
+                </a>
+                
+                <nav aria-label="Menu principal">
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#" class="cta-button">Área do Cliente</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu" aria-label="Abrir menu">☰</button>
+            </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="card p-4 h-100">
-            <h5>Resultados que Inspiram</h5>
-            <p>Celebramos cada conquista como um reflexo da visão estratégica e do compromisso com a excelência.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="card p-4 h-100">
-            <h5>Crescimento Humano</h5>
-            <p>Valorizamos o potencial humano, criando oportunidades de desenvolvimento que elevam indivíduos e empresas a novos patamares.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="card p-4 h-100">
-            <h5>Transformação Positiva</h5>
-            <p>Em um mundo de constantes mudanças, oferecemos novas perspectivas que transformam o presente e preparam o futuro.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Impact -->
-  <section class="impact">
-    "Acreditamos no poder da Dopamina para impulsionar mudanças reais e duradouras. Cada ideia, cada ação, é um passo em direção a um impacto positivo e global."
-  </section>
-<br>
-  <!-- About -->
-  <section class="about" id="about">
-    <h2>Sobre a Dopamina</h2>
-    <p>
-      A Dopamina não é apenas uma empresa; é um movimento. Criamos pontes entre pessoas, negócios e ideias, com um único propósito: transformar o futuro. Somos movidos por <span class="highlight">valores humanos</span>, criatividade e inovação. Nossa missão é conectar o que parecia desconexo e gerar resultados de impacto, tanto no presente quanto no futuro.
-    </p>
-    <p>
-      Atuamos em diversas áreas, desde consultoria estratégica até inovação tecnológica, sempre com o foco em promover o crescimento sustentável. Acreditamos que a verdadeira transformação vem da combinação entre a tecnologia, a visão humana e a ação colaborativa.
-    </p>
-    <p>
-      Se você está pronto para se conectar a uma rede de oportunidades e fazer a diferença, a Dopamina é o lugar certo para você. Junte-se a nós e comece sua jornada para um futuro mais brilhante e conectado.
-    </p>
-  
-  </section>
-<br>
-  <!-- Team -->
-  <section class="team" id="team">
-    <div class="container">
-      <h2>Nossa Equipe</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card p-4 h-100 text-center">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">Informação que impulsiona negócios</div>
+                    <h1>Soluções eficientes para o crescimento do seu negócio</h1>
+                    <p>Oferecemos serviços especializados em informação, intermediação e apoio administrativo, com transparência total e foco em resultados que impulsionam empresas de todos os portes.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contato" class="btn-primary">Solicitar Proposta</a>
+                        <a href="#servicos" class="btn-secondary">Ver Serviços</a>
+                    </div>
+                    
+                    <div class="hero-badges">
+                        <span>LGPD</span> • <span>Transparência</span> • <span>Eficiência</span>
+                    </div>
+                </div>
+                
+                <div class="hero-card">
+                    <h3>Por que a Dopamina?</h3>
+                    <div class="kpi-grid">
+                        <div class="kpi-item">
+                            <span class="kpi-number">100%</span>
+                            <span class="kpi-label">Informação</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-number">98%</span>
+                            <span class="kpi-label">Processos</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-number">95%</span>
+                            <span class="kpi-label">Parcerias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+                <p>Soluções completas e personalizadas para atender às necessidades específicas do seu negócio</p>
+            </div>
             
-            <h5 class="mb-1">Nome Sobrenome</h5>
-            <p class="text-muted">Cargo / Função</p>
-          </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Serviços de Informação</h3>
+                    <p>Coleta, análise e fornecimento de informações estratégicas para tomada de decisões assertivas.</p>
+                    <ul class="service-points">
+                        <li>Pesquisa de mercado especializada</li>
+                        <li>Análise de concorrência</li>
+                        <li>Relatórios personalizados</li>
+                        <li>Monitoramento contínuo</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Intermediação de Negócios</h3>
+                    <p>Facilitamos conexões estratégicas e oportunidades de negócio para expansão empresarial.</p>
+                    <ul class="service-points">
+                        <li>Identificação de oportunidades</li>
+                        <li>Negociação especializada</li>
+                        <li>Due diligence completa</li>
+                        <li>Acompanhamento pós-acordo</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Apoio Administrativo</h3>
+                    <p>Gestão eficiente de processos administrativos para otimizar a operação da sua empresa.</p>
+                    <ul class="service-points">
+                        <li>Gestão documental</li>
+                        <li>Controle de processos</li>
+                        <li>Organização de rotinas</li>
+                        <li>Padronização de procedimentos</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Cobrança & Cadastro</h3>
+                    <p>Serviços especializados em recuperação de créditos e gestão de cadastros empresariais.</p>
+                    <ul class="service-points">
+                        <li>Cobrança amigável e judicial</li>
+                        <li>Gestão de inadimplência</li>
+                        <li>Atualização cadastral</li>
+                        <li>Análise de crédito</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Mão de Obra Qualificada</h3>
+                    <p>Profissionais especializados para suprir demandas temporárias ou permanentes da sua empresa.</p>
+                    <ul class="service-points">
+                        <li>Seleção especializada</li>
+                        <li>Treinamento personalizado</li>
+                        <li>Gestão de performance</li>
+                        <li>Suporte contínuo</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Diferenciais</h3>
+                    <p>Compromissos que nos tornam únicos no mercado e garantem a excelência dos nossos serviços.</p>
+                    <ul class="service-points">
+                        <li>Conformidade total com LGPD</li>
+                        <li>Processos padronizados</li>
+                        <li>Transparência absoluta</li>
+                        <li>Atendimento personalizado</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="card p-4 h-100 text-center">
-          
-            <h5 class="mb-1">Nome Sobrenome</h5>
-            <p class="text-muted">Cargo / Função</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-4 h-100 text-center">
-         
-            <h5 class="mb-1">Nome Sobrenome</h5>
-            <p class="text-muted">Cargo / Função</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Events -->
-  <section class="events" id="events">
-    <div class="container">
-      <h2>Eventos e Comunidade</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card p-4 h-100">
-            <h5>Workshop de Inovação</h5>
-            <p>Momentos de aprendizado e troca de experiências que estimulam a criatividade e novas ideias para o futuro.</p>
-          </div>
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sobre a Dopamina</h2>
+            </div>
+            
+            <div class="about-content">
+                <p>Fundada com o propósito de transformar informação em valor, a Dopamina nasceu da identificação de uma lacuna no mercado: empresas precisavam de parceiros confiáveis para gerenciar processos complexos e ter acesso a informações estratégicas de qualidade.</p>
+                
+                <p>Nossa evolução foi construída sobre três pilares fundamentais: eficiência operacional, proximidade com o cliente e transparência total em todos os processos. Desenvolvemos metodologias próprias que garantem resultados consistentes e mensuráveis.</p>
+                
+                <p>Hoje, somos reconhecidos por nossa capacidade de adaptar soluções às necessidades específicas de cada cliente, mantendo sempre o foco na entrega de valor real e duradouro para os negócios que atendemos.</p>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div class="card p-4 h-100">
-            <h5>Encontro de Networking</h5>
-            <p>Conectamos pessoas de diferentes áreas para gerar colaborações e novas oportunidades de impacto.</p>
-          </div>
-        </div>
-      </div>
-    </div><br>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <h2>Perguntas Frequentes</h2>
-      <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-              O que é a Dopamina?
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              A Dopamina é um movimento que conecta pessoas, ideias e negócios com o objetivo de transformar o futuro de forma colaborativa e inovadora.
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Depoimentos reais de empresas que transformaram seus resultados com a Dopamina</p>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-              Como posso participar?
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Você pode se conectar com nossa comunidade através de eventos, parcerias e projetos colaborativos promovidos pela Dopamina.
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "A Dopamina revolucionou nossa gestão de informações. O que antes levava semanas, agora conseguimos em dias, com muito mais precisão e confiabilidade."
+                    </div>
+                    <div class="testimonial-author">Marina Silva</div>
+                    <div class="testimonial-role">Diretora Comercial, TechCorp</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "O apoio administrativo da Dopamina nos permitiu focar no core business. A padronização dos processos trouxe uma eficiência que não imaginávamos possível."
+                    </div>
+                    <div class="testimonial-author">Carlos Mendes</div>
+                    <div class="testimonial-role">CEO, Inovação Ltda</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Transparência total e resultados excepcionais. A parceria com a Dopamina foi fundamental para nossa expansão no mercado nacional."
+                    </div>
+                    <div class="testimonial-author">Ana Rodrigues</div>
+                    <div class="testimonial-role">Gerente de Operações, Growth Solutions</div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-              Quais áreas a Dopamina atua?
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Atuamos em consultoria estratégica, inovação tecnológica, desenvolvimento humano e conexões empresariais, sempre com foco em crescimento sustentável.
-            </div>
-          </div>
-        </div>
-        <!-- Pergunta 4 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-              A Dopamina é aberta para todos?
-            </button>
-          </h2>
-          <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Sim, buscamos criar um espaço inclusivo onde qualquer pessoa interessada em inovação, colaboração e impacto positivo pode participar.
-            </div>
-          </div>
-        </div>
-        <!-- Pergunta 5 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFive">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-              A Dopamina realiza eventos presenciais?
-            </button>
-          </h2>
-          <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Sim, promovemos encontros presenciais e online para fomentar a troca de experiências, networking e construção de ideias transformadoras.
-            </div>
-          </div>
-        </div>
-        <!-- Pergunta 6 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingSix">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
-              Existe algum foco específico de atuação?
-            </button>
-          </h2>
-          <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Nosso foco é na união entre tecnologia, criatividade e visão humana, aplicados em diferentes setores para gerar crescimento sustentável.
-            </div>
-          </div>
-        </div>
-        <!-- Pergunta 7 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingSeven">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
-              Posso colaborar mesmo sem experiência na área?
-            </button>
-          </h2>
-          <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Claro! Valorizamos diferentes perspectivas. O mais importante é a vontade de aprender, contribuir e crescer junto da comunidade.
-            </div>
-          </div>
-        </div>
-        <!-- Pergunta 8 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingEight">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
-              Como a Dopamina promove impacto positivo?
-            </button>
-          </h2>
-          <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Desenvolvemos iniciativas que unem inovação, colaboração e responsabilidade social, sempre visando transformar realidades de forma duradoura.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <div class="col-md-4 mb-4">
-          <h5>Dopamina</h5>
-          <p>Conectando pessoas, negócios e ideias para transformar o futuro com inovação e colaboração.</p>
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blog Dopamina</h2>
+                <p>Insights e conhecimento para impulsionar seus negócios</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>Como a padronização de cadastros reduz custos ocultos</h3>
+                    <p>Descubra como processos padronizados de cadastro podem eliminar retrabalhos, reduzir erros e gerar economia significativa para sua empresa. Analisamos casos reais e métricas de ROI.</p>
+                </div>
+                
+                <div class="blog-card">
+                    <h3>Terceirização de backoffice: quando faz sentido</h3>
+                    <p>Entenda os principais indicadores que sinalizam o momento ideal para terceirizar operações administrativas e como escolher o parceiro certo para essa transformação.</p>
+                </div>
+                
+                <div class="blog-card">
+                    <h3>LGPD na prática: rotinas administrativas que evitam riscos</h3>
+                    <p>Guia prático com procedimentos essenciais para garantir conformidade com a LGPD em processos administrativos cotidianos, protegendo sua empresa de penalidades.</p>
+                </div>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="#" class="btn-secondary">Ver todos os artigos</a>
+            </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <h5>Links Úteis</h5>
-          <ul class="list-unstyled">
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#team">Equipe</a></li>
-            <li><a href="#events">Eventos</a></li>
-            <li><a href="https://drive.google.com/file/d/1mD8t8pVlp8jywuLc66xYJnEGWrrvVAtu/view?usp=sharing"> Relatório de Transparência e Igualdade Salarial de Mulheres e Homens</a></li>
-          </ul>
-        
-      </div>
-      <div class="text-center mt-4">
-        <p>© 2025 Dopamina - Todos os direitos reservados | Desenvolvido com paixão e propósito</p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Entre em Contato</h2>
+                <p>Vamos conversar sobre como podemos impulsionar seu negócio</p>
+            </div>
+            
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp (opcional)</label>
+                        <input type="tel" id="whatsapp" name="whatsapp">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" required placeholder="Como podemos ajudar sua empresa?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Enviar mensagem</button>
+                    
+                    <p class="lgpd-note">
+                        Seus dados são tratados com total segurança e em conformidade com a LGPD. 
+                        Utilizamos as informações apenas para responder ao seu contato.
+                    </p>
+                </form>
+                
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <strong>Endereço:</strong><br>
+                        Rua das Empresas, 123 - Sala 45<br>
+                        Centro Empresarial - São Paulo/SP<br>
+                        CEP: 01234-567
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>Telefone:</strong><br>
+                        (11) 3456-7890
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>E-mail:</strong><br>
+                        contato@dopamina.com.br
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>Horário de Atendimento:</strong><br>
+                        Segunda a sexta, das 8h às 18h
+                    </div>
+                    
+                    <a href="#" class="btn-secondary" style="margin-top: 2rem; display: inline-block;">
+                        Área do Cliente (em breve)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> Dopamina. Todos os direitos reservados.</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="YouTube">Relatório de Transparência e Igualdade Salarial de Mulheres e Homens 2025</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            alert('Mensagem enviada! Entraremos em contato em breve.');
+            
+            // Clear form fields
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
 </body>
 </html>
